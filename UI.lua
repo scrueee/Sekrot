@@ -2262,7 +2262,7 @@ function Material.Load(Config)
 			local LabelContent = Objects.new("Label")
 			LabelContent.TextColor3 = Theme.ChipSet
 			LabelContent.Text = LabelText:upper()
-			LabelContent.TextSize = 14
+			LabelContent.TextSize = 13
 			LabelContent.Font = Enum.Font.GothamSemibold
 			LabelContent.Size = UDim2.fromScale(1,1) + UDim2.fromOffset(-5,0)
 			LabelContent.Position = UDim2.fromOffset(5,0)

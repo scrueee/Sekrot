@@ -2445,11 +2445,11 @@ function Material.Load(Config)
 		end
 
         function OptionLibrary.Section(SectionConfig)
-			local SectionText = SectionConfig.Text or "nil section"
+			local SectionText = SectionConfig.Name or "nil section"
 
 			local SectionContainer = Objects.new("Round")
 			SectionContainer.Name = "Label"
-			SectionContainer.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
+			SectionContainer.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,40)
 			SectionContainer.ImageColor3 = Theme.MainFrame
 			SectionContainer.Parent = PageContentFrame
             SectionContainer.BackgroundTransparency = 1

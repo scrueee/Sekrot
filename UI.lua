@@ -2447,6 +2447,13 @@ function Material.Load(Config)
         function OptionLibrary.Section(name)
 			local SectionText = name or "nil section"
 
+            local between = Objects.new("Round")
+			between.Name = "between"
+			between.Size = UDim2.fromScale(1, 0) + UDim2.fromOffset(0, 5)
+			between.Parent = PageContentFrame
+            between.BackgroundTransparency = 1
+            between.Image = ""
+
 			local SectionContainer = Objects.new("Round")
 			SectionContainer.Name = "Section"
 			SectionContainer.Size = UDim2.fromScale(1, 0) + UDim2.fromOffset(0, 30)
@@ -2464,7 +2471,7 @@ function Material.Load(Config)
 			SectionContent.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(-5, 0)
 			SectionContent.Position = UDim2.fromOffset(5,0)
 			SectionContent.Parent = SectionContainer
-            SectionContent.TextYAlignment = Enum.TextYAlignment.Bottom
+            SectionContent.TextYAlignment = Enum.TextYAlignment.Center
 
 			local SectionOptions = {}
 

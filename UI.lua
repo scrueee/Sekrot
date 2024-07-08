@@ -2444,8 +2444,8 @@ function Material.Load(Config)
 			return SliderLibrary
 		end
 
-        function OptionLibrary.Section(SectionConfig)
-			local SectionText = SectionConfig.Name or "nil section"
+        function OptionLibrary.Section(name)
+			local SectionText = name or "nil section"
 
 			local SectionContainer = Objects.new("Round")
 			SectionContainer.Name = "Label"

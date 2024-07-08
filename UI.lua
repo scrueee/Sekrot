@@ -2447,16 +2447,18 @@ function Material.Load(Config)
         function OptionLibrary.Section(name)
 			local SectionText = name or "nil section"
 
-            local between = Objects.new("Round")
-			between.Name = "between"
-			between.Size = UDim2.fromScale(1, 0) + UDim2.fromOffset(0, 5)
-			between.Parent = PageContentFrame
-            between.BackgroundTransparency = 1
-            between.Image = ""
+            if PageContentFrame:FindFirstChild("Section") then
+                local between = Objects.new("Round")
+                between.Name = "between"
+                between.Size = UDim2.fromScale(1, 0) + UDim2.fromOffset(0, 5)
+                between.Parent = PageContentFrame
+                between.BackgroundTransparency = 1
+                between.Image = ""
+            end
 
 			local SectionContainer = Objects.new("Round")
 			SectionContainer.Name = "Section"
-			SectionContainer.Size = UDim2.fromScale(1, 0) + UDim2.fromOffset(0, 30)
+			SectionContainer.Size = UDim2.fromScale(1, 0) + UDim2.fromOffset(0, 25)
 			SectionContainer.ImageColor3 = Theme.MainFrame
 			SectionContainer.Parent = PageContentFrame
             SectionContainer.BackgroundTransparency = 1

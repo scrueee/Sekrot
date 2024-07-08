@@ -2448,11 +2448,12 @@ function Material.Load(Config)
 			local SectionText = name or "nil section"
 
 			local SectionContainer = Objects.new("Round")
-			SectionContainer.Name = "Label"
-			SectionContainer.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,40)
+			SectionContainer.Name = "Section"
+			SectionContainer.Size = UDim2.fromScale(1, 0) + UDim2.fromOffset(0, 30)
 			SectionContainer.ImageColor3 = Theme.MainFrame
 			SectionContainer.Parent = PageContentFrame
             SectionContainer.BackgroundTransparency = 1
+            SectionContainer.Image = ""
 
 			local SectionContent = Objects.new("Label")
             SectionContent.BackgroundTransparency = 1
@@ -2460,7 +2461,7 @@ function Material.Load(Config)
 			SectionContent.Text = name:upper()
 			SectionContent.TextSize = 15
 			SectionContent.Font = Enum.Font.GothamBold
-			SectionContent.Size = UDim2.fromScale(1,1) + UDim2.fromOffset(-5,0)
+			SectionContent.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(-5, 0)
 			SectionContent.Position = UDim2.fromOffset(5,0)
 			SectionContent.Parent = SectionContainer
 
@@ -2470,7 +2471,7 @@ function Material.Load(Config)
 				SectionContent.Text = name
 			end
 
-			return LabelOptions
+			return SectionOptions
 		end
 
 		return OptionLibrary

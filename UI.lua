@@ -2462,12 +2462,12 @@ function Material.Load(Config)
 			SectionContent.Font = Enum.Font.GothamBold
 			SectionContent.Size = UDim2.fromScale(1,1) + UDim2.fromOffset(-5,0)
 			SectionContent.Position = UDim2.fromOffset(5,0)
-			SectionContent.Parent = LabelContainer
+			SectionContent.Parent = SectionContainer
 
-			local LabelOptions = {}
+			local SectionOptions = {}
 
-			function LabelOptions.SetText(Text)
-				LabelContent.Text = Text
+			function SectionOptions.SetName(name)
+				SectionContent.Text = name
 			end
 
 			return LabelOptions

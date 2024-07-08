@@ -2464,6 +2464,7 @@ function Material.Load(Config)
 			SectionContent.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(-5, 0)
 			SectionContent.Position = UDim2.fromOffset(5,0)
 			SectionContent.Parent = SectionContainer
+            SectionContent.TextYAlignment = Enum.TextYAlignment.Bottom
 
 			local SectionOptions = {}
 

@@ -2444,6 +2444,35 @@ function Material.Load(Config)
 			return SliderLibrary
 		end
 
+        function OptionLibrary.Section(SectionConfig)
+			local SectionText = SectionConfig.Text or "nil section"
+
+			local SectionContainer = Objects.new("Round")
+			SectionContainer.Name = "Label"
+			SectionContainer.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
+			SectionContainer.ImageColor3 = Theme.MainFrame
+			SectionContainer.Parent = PageContentFrame
+            SectionContainer.BackgroundTransparency = 1
+
+			local SectionContent = Objects.new("Label")
+            SectionContent.BackgroundTransparency = 1
+			SectionContent.TextColor3 = Theme.ChipSet
+			SectionContent.Text = LabelText:upper()
+			SectionContent.TextSize = 15
+			SectionContent.Font = Enum.Font.GothamBold
+			SectionContent.Size = UDim2.fromScale(1,1) + UDim2.fromOffset(-5,0)
+			SectionContent.Position = UDim2.fromOffset(5,0)
+			SectionContent.Parent = LabelContainer
+
+			local LabelOptions = {}
+
+			function LabelOptions.SetText(Text)
+				LabelContent.Text = Text
+			end
+
+			return LabelOptions
+		end
+
 		return OptionLibrary
 	end
 

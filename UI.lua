@@ -50,7 +50,7 @@ local Themes = {
 		Maximise = Color3.fromRGB(25,255,0),
 		MaximiseAccent = Color3.fromRGB(0,255,110),
 		NavBar = Color3.fromRGB(55,55,55),
-		NavBarAccent = Color3.fromRGB(255,255,255),
+		NavBarAccent = Color3.fromRGB(55,55,55),
 		NavBarInvert = Color3.fromRGB(235,235,235),
 		TitleBar = Color3.fromRGB(55,55,55),
 		TitleBarAccent = Color3.fromRGB(255,255,255),
@@ -338,7 +338,8 @@ local Material = {}
 local Styles = {
 	[1] = "Normal",
 	[2] = "Invert",
-	[3] = "Sheets"
+	[3] = "Sheets",
+	[4] = "Icons"
 }
 
 local ThisTheme
@@ -513,6 +514,105 @@ local NavBar = {
 		NavBarContent.Parent = NewNavBar
 
 		local NavBarList = Objects.new("UIListLayout")
+		NavBarList.FillDirection = Enum.FillDirection.Vertical
+		NavBarList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		NavBarList.VerticalAlignment = Enum.VerticalAlignment.Top
+		NavBarList.SortOrder = Enum.SortOrder.LayoutOrder
+		NavBarList.Parent = NavBarContent
+
+		local NavBarPadding = Objects.new("UIPadding")
+		NavBarPadding.PaddingLeft = UDim.new(0,5)
+		NavBarPadding.PaddingRight = UDim.new(0,5)
+		NavBarPadding.PaddingTop = UDim.new(0,5)
+		NavBarPadding.PaddingBottom = UDim.new(0,5)
+		NavBarPadding.Parent = NavBarContent
+
+		NavBarContent.ChildAdded:Connect(function(Child)
+			pcall(function()
+				local Children = #NavBarContent:GetChildren() - 2
+				TweenService:Create(Child, TweenInfo.new(1), {TextTransparency = (Children > 1) and 0.5 or 0}):Play()
+			end)
+			pcall(function()
+				local Children = #NavBarContent:GetChildren() - 2
+				TweenService:Create(Child, TweenInfo.new(1), {ImageTransparency = (Children > 1) and 0.5 or 0}):Play()
+			end)
+			pcall(function()
+				local Children = #NavBarContent:GetChildren() - 2
+				TweenService:Create(Child:FindFirstChildWhichIsA("ImageLabel"), TweenInfo.new(1), {ImageTransparency = (Children > 1) and 0.5 or 0}):Play()
+			end)
+			pcall(function()
+				Child.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
+			end)
+			pcall(function()
+				Child:FindFirstChildWhichIsA("ImageLabel").ImageColor3 = ThisTheme.NavBar
+			end)
+			pcall(function()
+				Child.TextColor3 = ThisTheme.NavBar
+			end)
+			pcall(function()
+				Child.ImageColor3 = ThisTheme.NavBar
+			end)
+		end)
+
+		return NewNavBar, NavBarContent, NavBarMenu,  NavBarOverlay
+	end,
+	Icons = function()
+		local NewNavBar = Objects.new("Round")
+		NewNavBar.ClipsDescendants = true
+		NewNavBar.Name = "NavBar"
+		NewNavBar.Size = UDim2.fromScale(0,1) - UDim2.fromOffset(0,30)
+		NewNavBar.Position = UDim2.fromOffset(0,30)
+		NewNavBar.ImageColor3 = ThisTheme.NavBarAccent
+		NewNavBar.ZIndex = 100
+
+		local NavBarOverlay = Objects.new("Frame")
+		NavBarOverlay.Name = "Overlay"
+		NavBarOverlay.BackgroundColor3 = ThisTheme.NavBar
+		NavBarOverlay.BackgroundTransparency = 1
+		NavBarOverlay.Size = UDim2.fromScale(1,1) - UDim2.fromOffset(0,30)
+		NavBarOverlay.Position = UDim2.fromOffset(0,30)
+		NavBarOverlay.ZIndex = 75
+
+		local NavBarMenu = Objects.new("NavBar")
+		NavBarMenu.ZIndex = 100
+
+		local NavBarShadow = Objects.new("Shadow")
+		NavBarShadow.ImageColor3 = ThisTheme.NavBar
+		NavBarShadow.Parent = NewNavBar
+		NavBarShadow.ZIndex = 100
+
+		local Effect1, Effect2, Effect3 = Objects.new("Frame"), Objects.new("Frame"), Objects.new("Frame")
+
+		Effect1.ZIndex = 100
+		Effect2.ZIndex = 100
+		Effect3.ZIndex = 100
+
+		Effect1.BackgroundTransparency = 0
+		Effect2.BackgroundTransparency = 0
+		Effect3.BackgroundTransparency = 0
+
+		Effect1.BackgroundColor3 = ThisTheme.NavBarAccent
+		Effect2.BackgroundColor3 = ThisTheme.NavBarAccent
+		Effect3.BackgroundColor3 = ThisTheme.NavBar
+
+		Effect1.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,5)
+		Effect2.Size = UDim2.fromScale(0,1) + UDim2.fromOffset(5,0)
+		Effect3.Size = UDim2.fromScale(0,1) + UDim2.fromOffset(1,0)
+
+		Effect1.Position = UDim2.fromScale(0,0)
+		Effect2.Position = UDim2.fromScale(1,0) - UDim2.fromOffset(5,0)
+		Effect3.Position = UDim2.fromScale(1,0)
+
+		Effect1.Parent = NewNavBar
+		Effect2.Parent = NewNavBar
+		Effect3.Parent = NewNavBar
+
+		local NavBarContent = Objects.new("Frame")
+		NavBarContent.Name = "Content"
+		NavBarContent.Parent = NewNavBar
+
+		local NavBarList = Objects.new("UIListLayout")
+		NavBarList.Padding = UDim.new(0, 10)
 		NavBarList.FillDirection = Enum.FillDirection.Vertical
 		NavBarList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		NavBarList.VerticalAlignment = Enum.VerticalAlignment.Top
@@ -1030,7 +1130,7 @@ function Material.Load(Config)
 				Button.TextSize = Settings.TextSize
 				Button.Font = Settings.Font
 				Button.Text = Title:upper()
-				Button.Size = UDim2.fromScale(0,1) + UDim2.fromOffset(TextSize+35)
+				Button.Size = UDim2.fromScale(0,0.6) + UDim2.fromOffset(TextSize+35)
 				Button.ZIndex = 200
 				Button.TextTransparency = 1
 			end
@@ -1073,6 +1173,19 @@ function Material.Load(Config)
 			Button.Size = UDim2.fromScale(0,1) + UDim2.fromOffset(TextSize+10)
 			Button.ZIndex = 200
 			Button.TextTransparency = 1
+			Button.BackgroundTransparency = 0
+			Button.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+
+			Corner = Instance.new("UICorner")
+			Corner.CornerRadius = UDim.new(0, 5)
+
+			BG = Objects.new("Frame")
+			BG.Name = "bg"
+			BG.Size = UDim2.fromScale(1, 1)
+			BG.Position = UDim2.fromOffset(2, 2)
+			BG.ZIndex = 199
+			BG.BackgroundTransparency = 0.5
+			BG.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 		end
 
 		Button.Parent = NavigationBarContent

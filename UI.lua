@@ -50,7 +50,7 @@ local Themes = {
 		Maximise = Color3.fromRGB(25,255,0),
 		MaximiseAccent = Color3.fromRGB(0,255,110),
 		NavBar = Color3.fromRGB(55,55,55),
-		NavBarAccent = Color3.fromRGB(200, 200, 200),
+		NavBarAccent = Color3.fromRGB(255, 255, 255),
 		NavBarInvert = Color3.fromRGB(235,235,235),
 		TitleBar = Color3.fromRGB(55,55,55),
 		TitleBarAccent = Color3.fromRGB(255,255,255),
@@ -1190,6 +1190,7 @@ function Material.Load(Config)
 			Button.BackgroundTransparency = 0
 			Button.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
 			Button.TextColor3 = Color3.fromRGB(200, 200, 200)
+			Button.AutoButtonColor = false
 
 			Corner = Instance.new("UICorner")
 			Corner.CornerRadius = UDim.new(0, 5)

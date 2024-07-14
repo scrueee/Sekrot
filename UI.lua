@@ -2467,7 +2467,7 @@ function Material.Load(Config)
 			local SectionContent = Objects.new("Label")
             SectionContent.BackgroundTransparency = 1
 			SectionContent.TextColor3 = Theme.ChipSet
-			SectionContent.Text = name:upper()
+			SectionContent.Text = name
 			SectionContent.TextSize = 15
 			SectionContent.Font = Enum.Font.GothamBold
 			SectionContent.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(-5, 0)

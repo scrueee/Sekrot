@@ -1141,12 +1141,25 @@ function Material.Load(Config)
 
 			local NewImage = Objects.new(Button and "Round" or "SmoothButton")
 			NewImage.Name = ImageID
-			NewImage.BackgroundTransparency = 1
+			NewImage.BackgroundTransparency = 0
 			NewImage.Size = UDim2.fromOffset(20,20)
 			NewImage.ScaleType = Enum.ScaleType.Stretch
 			NewImage.Image = Image
 			NewImage.ZIndex = 200
 			NewImage.ImageTransparency = 1
+
+			Corner = Instance.new("UICorner")
+			Corner.CornerRadius = UDim.new(0, 5)
+			Corner.Parent = NewImage
+
+			BG = Objects.new("Frame")
+			BG.Name = "bg"
+			BG.Size = UDim2.fromScale(1, 1)
+			BG.Position = UDim2.fromOffset(2, 2)
+			BG.ZIndex = 199
+			BG.BackgroundTransparency = 0.5
+			BG.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+			BG.Parent = NewImage
 
 			if Button then
 				NewImage.Position = UDim2.fromScale(0,0.5) - UDim2.fromOffset(0,10)
@@ -1178,6 +1191,7 @@ function Material.Load(Config)
 
 			Corner = Instance.new("UICorner")
 			Corner.CornerRadius = UDim.new(0, 5)
+			Corner.Parent = Button
 
 			BG = Objects.new("Frame")
 			BG.Name = "bg"
@@ -1186,6 +1200,7 @@ function Material.Load(Config)
 			BG.ZIndex = 199
 			BG.BackgroundTransparency = 0.5
 			BG.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+			BG.Parent = Button
 		end
 
 		Button.Parent = NavigationBarContent

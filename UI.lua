@@ -387,6 +387,7 @@ local NavBar = {
 		end)
 
 		local NavBarList = Objects.new("UIListLayout")
+		NavBarList.Padding = UDim.new(0, 10)
 		NavBarList.FillDirection = Enum.FillDirection.Horizontal
 		NavBarList.HorizontalAlignment = Enum.HorizontalAlignment.Left
 		NavBarList.VerticalAlignment = Enum.VerticalAlignment.Center
@@ -1188,6 +1189,7 @@ function Material.Load(Config)
 			Button.TextTransparency = 1
 			Button.BackgroundTransparency = 0
 			Button.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+			Button.TextColor3 = Color3.fromRGB(200, 200, 200)
 
 			Corner = Instance.new("UICorner")
 			Corner.CornerRadius = UDim.new(0, 5)

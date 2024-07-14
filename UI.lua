@@ -1183,7 +1183,7 @@ function Material.Load(Config)
 			Button.TextSize = Settings.TextSize
 			Button.Font = Settings.Font
 			Button.Text = Title:upper()
-			Button.Size = UDim2.fromScale(0,1) + UDim2.fromOffset(TextSize+10)
+			Button.Size = UDim2.fromScale(0,0.6) + UDim2.fromOffset(TextSize+10)
 			Button.ZIndex = 200
 			Button.TextTransparency = 1
 			Button.BackgroundTransparency = 0

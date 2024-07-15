@@ -2391,7 +2391,7 @@ function Material.Load(Config)
 			local LabelContainer = Objects.new("Round")
 			LabelContainer.Name = "Label"
 			LabelContainer.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
-			LabelContainer.ImageColor3 = Theme.MainFrame
+			LabelContainer.ImageColor3 = Color3.fromRGB(55, 55, 55)
 			LabelContainer.Parent = PageContentFrame
 
 			local LabelContent = Objects.new("Label")

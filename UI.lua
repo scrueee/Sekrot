@@ -1109,14 +1109,14 @@ function Material.Load(Config)
 		TweenService:Create(BannerContainer, TweenInfo.new(0.5), {Size = UDim2.fromScale(1,0) + UDim2.fromOffset(-10,30)}):Play()
 	end
 
-	function TabLibrary.Separate(SepConfig)
+	function TabLibrary.Separate()
 
 		Frame = Objects.new("Frame")
 		Frame.Name = "Separation"
 		Frame.Size = UDim2.fromScale(0,0.6) + UDim2.fromOffset(1, 0)
 		Frame.ZIndex = 200
 		Frame.BackgroundTransparency = 0
-		Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+		Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 
 		Frame.Parent = NavigationBarContent
 

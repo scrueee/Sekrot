@@ -1116,7 +1116,7 @@ function Material.Load(Config)
 		Frame.Size = UDim2.fromScale(0,0.6) + UDim2.fromOffset(1, 0)
 		Frame.ZIndex = 200
 		Frame.BackgroundTransparency = 0
-		Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+		Frame.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 
 		Frame.Parent = NavigationBarContent
 
